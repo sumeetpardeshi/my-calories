@@ -35,8 +35,9 @@ interface AnalysisProps {
   };
 }
 
-const LogItem = ({handleImageUpload, image, error, analysis, handleImageAnalysis}: {handleImageUpload: (event: React.ChangeEvent<HTMLInputElement>) => void, image: string | null, error: string | null, analysis: AnalysisProps | null, handleImageAnalysis: () => void}) => {
-  
+const LogItem = ({handleImageUpload, image, error, analysis, handleImageAnalysis, mealAnalysisRef}: {handleImageUpload: (event: React.ChangeEvent<HTMLInputElement>) => void, image: string | null, error: string | null, analysis: AnalysisProps | null, handleImageAnalysis: () => void, mealAnalysisRef:React.RefObject<HTMLDivElement>}) => {
+
+
   console.log("LogItem",analysis)
   return (
     <div className="space-y-6 w-full">
@@ -69,14 +70,15 @@ const LogItem = ({handleImageUpload, image, error, analysis, handleImageAnalysis
       </Card>
 
       {analysis && (
-        <Card className="w-full">
+        <div   >
+          <Card className="w-full">
           <CardHeader>
-            <CardTitle>Meal Analysis</CardTitle>
+            <CardTitle ref={mealAnalysisRef}>Meal Analysis</CardTitle>
           </CardHeader>
           <CardContent>
             <AnalysisDisplay analysis={analysis} />
           </CardContent>
-        </Card>
+        </Card></div>
       )}
       
     </div>

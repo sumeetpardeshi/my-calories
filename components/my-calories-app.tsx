@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -113,17 +113,22 @@ const [isAnalyzing, setIsAnalyzing] = useState(false);
       console.log("set result after handleImageAnalysis", result)
       setAnalysis(result)
       setIsAnalyzing(false)
+      scrollToMealAnalysis();
     } catch (err: any) {
       setError(err.message)
       setIsAnalyzing(false)
     }
   }
 
+  const mealAnalysisRef = useRef<HTMLDivElement>(null);
+  const scrollToMealAnalysis = useCallback(() => {
+    mealAnalysisRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, []);
   const renderContent = () => {
     switch (activeSection) {
       case 'log':
         return (
-          <LogItem handleImageUpload={handleImageUpload} image={image} error={error} analysis={analysis} handleImageAnalysis={handleImageAnalysis} />
+          <LogItem handleImageUpload={handleImageUpload} image={image} error={error} analysis={analysis} handleImageAnalysis={handleImageAnalysis} mealAnalysisRef={mealAnalysisRef} />
         )
       case 'calendar':
         return (
