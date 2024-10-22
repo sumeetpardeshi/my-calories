@@ -52,7 +52,7 @@ const saveUserData = (data: any) => {
 export function MyCaloriesAppComponent() {
   const [user, setUser] = useState<any>(null)
   const [image, setImage] = useState<string | null>(null)
-  const [analysis, setAnalysis] = useState<any>({"calorie_estimation":[{"item":"Romaine lettuce (2 cups)","calories":16},{"item":"Cherry tomatoes (1/2 cup)","calories":15},{"item":"Cucumber (1/2 medium)","calories":8},{"item":"Grilled chicken breast (3 oz)","calories":128},{"item":"Hard-boiled egg (1 large)","calories":78},{"item":"Cheddar cheese (1 oz)","calories":113},{"item":"Ranch dressing (2 tbsp)","calories":145}],"total_calories":503,"suggested_when_to_eat":"This meal is great for lunch or a light dinner.","modifications":[{"snackType":"Add-ons","add":"Add more vegetables like bell peppers","remove":"Remove ranch dressing for a lighter option"}],"tags":["healthy","high-protein","low-carb"],"potential_allergies":["dairy","egg"]})
+  const [analysis, setAnalysis] = useState<any>(null)
   const [error, setError] = useState<string | null>(null)
   const [date, setDate] = useState<Date | undefined>(new Date())
   const [activeSection, setActiveSection] = useState<string>('log')

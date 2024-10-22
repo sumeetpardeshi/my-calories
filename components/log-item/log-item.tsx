@@ -72,7 +72,7 @@ const LogItem = ({handleImageUpload, image, error, analysis, handleImageAnalysis
             <CardTitle>Meal Analysis</CardTitle>
           </CardHeader>
           <CardContent>
-            <AnalysisDisplay analysis={analysis.analysis} />
+            <AnalysisDisplay analysis={analysis} />
           </CardContent>
         </Card>
       )}
