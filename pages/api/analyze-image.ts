@@ -21,6 +21,14 @@ const ResponseEvent = z.object({
     potential_allergies: z.array(z.string())
   }); 
 
+  export const config = {
+    api: {
+      bodyParser: {
+        sizeLimit: '5mb'
+      }
+    }
+  }
+  
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -43,8 +51,8 @@ export default async function handler(
    
        // Resize and compress the image
        const resizedImageBuffer = await sharp(imageBuffer)
-         .resize({ width: 800 }) // Adjust width as needed
-         .jpeg({ quality: 80 }) // Adjust quality as needed
+         .resize({ width: 500 }) // Adjust width as needed
+         .jpeg({ quality: 20 }) // Adjust quality as needed
          .toBuffer();
    
        const resizedImageBase64 = resizedImageBuffer.toString('base64');
@@ -52,7 +60,7 @@ export default async function handler(
 
     const response = await openai.chat.completions.create({
       model: "gpt-4o-mini",  // This is the current model for vision tasks
-      max_tokens: 300,
+     // max_tokens: 300,
       messages: [
         {
           role: "user",
