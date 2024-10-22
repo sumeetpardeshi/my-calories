@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import OpenAI from 'openai'
 import { zodResponseFormat } from "openai/helpers/zod";
 import { z } from "zod";
+import sharp from 'sharp';
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -35,6 +36,20 @@ export default async function handler(
   }
 
   try {
+
+       // Remove the data:image/jpeg;base64, part
+       const base64Data = imageUrl.replace(/^data:image\/\w+;base64,/, "");
+       const imageBuffer = Buffer.from(base64Data, 'base64');
+   
+       // Resize and compress the image
+       const resizedImageBuffer = await sharp(imageBuffer)
+         .resize({ width: 800 }) // Adjust width as needed
+         .jpeg({ quality: 80 }) // Adjust quality as needed
+         .toBuffer();
+   
+       const resizedImageBase64 = resizedImageBuffer.toString('base64');
+       const resizedImageUrl = `data:image/jpeg;base64,${resizedImageBase64}`;
+
     const response = await openai.chat.completions.create({
       model: "gpt-4o-mini",  // This is the current model for vision tasks
       max_tokens: 300,
@@ -43,7 +58,7 @@ export default async function handler(
           role: "user",
           content: [
             { type: "text", text: "Analyze this image of food. Provide a list of food items, their estimated calorie content, and any relevant tags (e.g., 'healthy', 'high-protein', etc.). Also, give a total calorie estimate and a brief health suggestion based on the meal." },
-            { type: "image_url", image_url: { url: imageUrl } },
+            { type: "image_url", image_url: { url: resizedImageUrl } },
           ],
         },
       ],
