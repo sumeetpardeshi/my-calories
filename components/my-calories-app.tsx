@@ -7,10 +7,8 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Calendar } from "@/components/ui/calendar"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Camera, Calendar as CalendarIcon, Trophy, AlertCircle, Home, Settings, LogOut, Menu, BarChart, HandPlatter } from 'lucide-react'
-import Image from 'next/image'
+import { Camera, Calendar as CalendarIcon, Trophy, Settings, LogOut, Menu, BarChart, HandPlatter } from 'lucide-react'
 import Link from 'next/link'
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import LogItem from '@/components/log-item/log-item'

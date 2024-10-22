@@ -1,5 +1,4 @@
 import { MyCaloriesAppComponent } from "@/components/my-calories-app";
-import Image from "next/image";
 
 export default function Home() {
   return ( <MyCaloriesAppComponent />)
