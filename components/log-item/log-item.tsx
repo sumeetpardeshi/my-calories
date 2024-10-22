@@ -7,7 +7,33 @@ import { AlertCircle } from "lucide-react"
 import Image from "next/image"
 import AnalysisDisplay from "@/components/AnalysisDisplay";
 
-const LogItem = ({handleImageUpload, image, error, analysis, handleImageAnalysis}: {handleImageUpload: (event: React.ChangeEvent<HTMLInputElement>) => void, image: string | null, error: string | null, analysis: {total_calories: number, calorie_estimation: Array<{item: string, calories: number, tags: string[]}>, suggested_when_to_eat: string} | null, handleImageAnalysis: () => void}) => {
+
+interface CalorieEstimation {
+  item: string;
+  calories: string;
+}
+
+interface Modifications {
+  snackType: string;
+  add: string;
+  remove: string;
+}
+
+interface AnalysisProps {
+  analysis: {
+    calorie_estimation: CalorieEstimation[];
+    total_calories: number;
+    suggested_meal: string;
+    modifications: {
+      lunch: Modifications;
+      dinner: Modifications;
+    };
+    tags: Record<string, string>;
+    potential_allergies: string[];
+  };
+}
+
+const LogItem = ({handleImageUpload, image, error, analysis, handleImageAnalysis}: {handleImageUpload: (event: React.ChangeEvent<HTMLInputElement>) => void, image: string | null, error: string | null, analysis: AnalysisProps | null, handleImageAnalysis: () => void}) => {
 
   console.log("LogItem",analysis)
   return (
@@ -46,7 +72,7 @@ const LogItem = ({handleImageUpload, image, error, analysis, handleImageAnalysis
             <CardTitle>Meal Analysis</CardTitle>
           </CardHeader>
           <CardContent>
-            <AnalysisDisplay analysis={analysis} />
+            <AnalysisDisplay analysis={analysis.analysis} />
           </CardContent>
         </Card>
       )}

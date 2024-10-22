@@ -8,6 +8,7 @@ interface CalorieEstimation {
 }
 
 interface Modifications {
+  snackType: string;
   add: string;
   remove: string;
 }

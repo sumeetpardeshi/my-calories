@@ -10,8 +10,12 @@ const openai = new OpenAI({
 const ResponseEvent = z.object({
     calorie_estimation : z.array(z.object({ item: z.string(), calories: z.number() })),
     total_calories: z.number(),
-    suggested_when_to_eat: z.string(),
-    modifications: z.array(z.object({snackType: z.string(), add: z.string(), remove: z.string()})),
+    suggested_meal: z.string(),
+    modifications: z.object({ 
+        lunch: z.object({snackType: z.string(), add: z.string(), remove: z.string()}),
+        dinner: z.object({snackType: z.string(), add: z.string(), remove: z.string()})
+    },
+    ),
     tags: z.array(z.string()),
     potential_allergies: z.array(z.string())
   }); 
