@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button"
 import { AlertCircle } from "lucide-react"
 import Image from "next/image"
 import AnalysisDisplay from "@/components/AnalysisDisplay";
+import { useState } from "react"
+import AnalysisLoader from "../AnalysisLoader"
 
 
 interface CalorieEstimation {
@@ -34,7 +36,7 @@ interface AnalysisProps {
 }
 
 const LogItem = ({handleImageUpload, image, error, analysis, handleImageAnalysis}: {handleImageUpload: (event: React.ChangeEvent<HTMLInputElement>) => void, image: string | null, error: string | null, analysis: AnalysisProps | null, handleImageAnalysis: () => void}) => {
-
+  
   console.log("LogItem",analysis)
   return (
     <div className="space-y-6 w-full">
@@ -76,6 +78,7 @@ const LogItem = ({handleImageUpload, image, error, analysis, handleImageAnalysis
           </CardContent>
         </Card>
       )}
+      
     </div>
   )
 }

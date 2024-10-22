@@ -12,6 +12,7 @@ import { Camera, Calendar as CalendarIcon, Trophy, Settings, LogOut, Menu, BarCh
 import Link from 'next/link'
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import LogItem from '@/components/log-item/log-item'
+import AnalysisLoader from './AnalysisLoader'
 // Mock functions (unchanged)
 const analyzeImage = async (imageUrl: string) => {
   try {
@@ -50,13 +51,23 @@ const saveUserData = (data: any) => {
 }
 
 export function MyCaloriesAppComponent() {
+
   const [user, setUser] = useState<any>(null)
   const [image, setImage] = useState<string | null>(null)
   const [analysis, setAnalysis] = useState<any>(null)
   const [error, setError] = useState<string | null>(null)
   const [date, setDate] = useState<Date | undefined>(new Date())
   const [activeSection, setActiveSection] = useState<string>('log')
+const [isAnalyzing, setIsAnalyzing] = useState(false);
 
+  // const handleAnalyzeClick = async () => {
+  //   setIsAnalyzing(true);
+  //   try {
+  //     await handleImageAnalysis();
+  //   } finally {
+  //     setIsAnalyzing(false);
+  //   }
+  // };
   useEffect(() => {
     const userData = getUserData()
     if (userData) {
@@ -94,14 +105,17 @@ export function MyCaloriesAppComponent() {
   }
 
   const handleImageAnalysis = async () => {
+    setIsAnalyzing(true)
     if (!image) return
     try {
       setError(null)
       const result = await analyzeImage(image)
       console.log("set result after handleImageAnalysis", result)
       setAnalysis(result)
+      setIsAnalyzing(false)
     } catch (err: any) {
       setError(err.message)
+      setIsAnalyzing(false)
     }
   }
 
@@ -364,6 +378,7 @@ export function MyCaloriesAppComponent() {
         </header>
         <main className="flex-1 p-4 sm:px-6">
           {renderContent()}
+          {isAnalyzing && <AnalysisLoader />}
         </main>
       </div>
     </div>
