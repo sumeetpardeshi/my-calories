@@ -1,32 +1,9 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-interface CalorieEstimation {
-  item: string;
-  calories: string;
-}
 
-interface Modifications {
-  snackType?: string;
-  add?: string;
-  remove?: string;
-}
 
-interface AnalysisProps {
-  analysis: {
-    calorie_estimation?: CalorieEstimation[];
-    total_calories?: number;
-    suggested_meal?: string;
-    modifications?: {
-      lunch?: Modifications;
-      dinner?: Modifications;
-    };
-    tags?: Record<string, string>;
-    potential_allergies?: string[];
-  };
-}
-
-const AnalysisDisplay: React.FC<AnalysisProps> = ({ analysis }) => {
+const AnalysisDisplay= ({ analysis }) => {
   if (!analysis || Object.keys(analysis).length === 0) {
     return <p>No analysis data available.</p>;
   }
