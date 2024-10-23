@@ -8,7 +8,8 @@ import Image from "next/image"
 import AnalysisDisplay from "@/components/AnalysisDisplay";
 import { useState } from "react"
 import AnalysisLoader from "../AnalysisLoader"
-
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import { FeatureCarousel } from "../FeatureCarousel"
 
 interface CalorieEstimation {
   item: string;
@@ -37,10 +38,18 @@ interface AnalysisProps {
 
 const LogItem = ({handleImageUpload, image, error, analysis, handleImageAnalysis, mealAnalysisRef}: {handleImageUpload: (event: React.ChangeEvent<HTMLInputElement>) => void, image: string | null, error: string | null, analysis: AnalysisProps | null, handleImageAnalysis: () => void, mealAnalysisRef:React.RefObject<HTMLDivElement>}) => {
 
+  const steps = [
+    { title: "Step 1", description: "Upload a photo of your meal" },
+    { title: "Step 2", description: "Wait for AI analysis" },
+    { title: "Step 3", description: "Review and confirm the results" },
+    { title: "Step 4", description: "Log your meal" },
+  ]
 
   console.log("LogItem",analysis)
   return (
     <div className="space-y-6 w-full">
+      <FeatureCarousel />
+
       <Card className="w-full">
         <CardHeader>
           <CardTitle>Log Your Food</CardTitle>
