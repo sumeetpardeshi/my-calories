@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Calories Tracker
+
+## Overview
+My Calories Tracker is a web application designed to help users log their meals and analyze their nutritional intake using AI technology. The application allows users to upload images of their meals, which are then processed to provide insights and nutritional information. The app uses gpt-4o-mini vision model.
+
+
+## Features
+- **Image Upload**: Users can upload photos of their meals.
+- **AI Analysis**: The application uses AI to analyze the uploaded images and provide nutritional information.
+- **Meal Logging**: Users can log their meals and track their calorie intake.
+- **User-Friendly Interface**: A simple and intuitive interface for easy navigation.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js (version X.X.X)
+- npm (version X.X.X) or yarn
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/my-calories-tracker.git
+   cd my-calories-tracker
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Start the development server:
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open your browser and navigate to `http://localhost:3000`.
 
-## Learn More
+## Usage
+1. Upload a photo of your meal using the upload button.
+2. Wait for the AI analysis to complete.
+3. Review the results and confirm the nutritional information.
+4. Log your meal to track your calorie intake.
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
+Contributions are welcome! Please follow these steps:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes and commit them (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature/YourFeature`).
+5. Open a pull request.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Acknowledgments
+- [React](https://reactjs.org/) - JavaScript library for building user interfaces.
+- [TypeScript](https://www.typescriptlang.org/) - A typed superset of JavaScript.
+- [Your AI Analysis Tool](link-to-your-ai-tool) - For the AI analysis functionality.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contact
+For any inquiries, please contact [your-email@example.com](mailto:your-email@example.com).
