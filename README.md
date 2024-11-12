@@ -1,5 +1,17 @@
 # My Calories Tracker
 
+<p align="center">
+  <a href="#">
+    <img src="docs/screen1.png" height="200vh" style="border-radius:1rem" alt="Upload Page"/>
+    <img src="docs/screen2.png" height="200vh" style="border-radius:1rem" alt="Results Page"/>
+    <img src="docs/mobile1.png" height="200vh" style="border-radius:1rem" alt="Mobile Upload Page"/>
+    <img src="docs/mobile1.png" height="200vh" style="border-radius:1rem" alt="Mobile Results Page"/>
+  </a>
+</p>
+
+
+[Try it ▶️](https://my-calories-by-sumeet.vercel.app/) 
+
 ## Overview
 My Calories Tracker is a web application designed to help users log their meals and analyze their nutritional intake using AI technology. The application allows users to upload images of their meals, which are then processed to provide insights and nutritional information. The app uses gpt-4o-mini vision model.
 
